@@ -92,7 +92,7 @@ contract CredentialBox is IssuerHelper {
     // issuer가 holder(_vaccineAddress)에게 credential을 발행하는 함수, onlyIssuer를 통과해야만 실행 가능
     function claimCredential(address _vaccineAddress, uint8 _vaccineType, string calldata _value) onlyIssuer public returns(bool) {
         // credential 발행을 위해 credential 구조체 선언 (블록체인에 영향을 미쳐야 하므로 memory가 아닌 storage로 선언)
-		    Credential storage credential = credentials[_vaccineAddress];
+	Credential storage credential = credentials[_vaccineAddress];
         // credential.id가 0으로 처음 작성되는지 검증하고
         require(credential.id == 0);
         // credential 구조체에 맞게 idCount와 파라미터 데이터를 할당
